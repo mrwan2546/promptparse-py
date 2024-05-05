@@ -1,4 +1,4 @@
-from typing import List, Union, Self
+from typing import List, Union
 
 from ..model.tlv import TLVModel
 from ..utils.crc16 import CRC16XModem

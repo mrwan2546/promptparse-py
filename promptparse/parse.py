@@ -2,6 +2,7 @@ import re
 
 from .library.tlv import TLV
 from .library.EMVCoQR import EMVCoQR
+from .library.BOTBarcode import BOTBarcode
 
 REGEX = re.compile(r"^\d{4}.+")
 
@@ -35,3 +36,7 @@ class Parser:
                 tags[idx].sub_tags = sub
 
         return EMVCoQR(payload=payload, tags=tags)
+
+    @staticmethod
+    def parseBarcode(payload: str) -> BOTBarcode:
+        return BOTBarcode.fromString(payload=payload)
