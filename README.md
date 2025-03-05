@@ -74,6 +74,22 @@ except:
     print("Slip validate failed.")
 ```
 
+### Validate & extract data from Truemoney Slip Verify QR
+
+```py
+from promptparse.validate import truemoneySlipVerify
+
+try:
+    result = truemoneySlipVerify("0049000....")
+    if not result:
+        print("Slip validate failed.")
+    
+    print(result.eventType, result.transactionId, result.transferDate)
+except:
+    print("Slip validate failed.")
+```
+
+
 ### Convert BOT Barcode to PromptPay QR Tag 30 (Bill Payment)
 
 ```py

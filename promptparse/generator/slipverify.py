@@ -17,3 +17,22 @@ def slipVerify(sendingBank: str, transRef: str):
     ]
 
     return TLV.withCRCTag(TLV.encode(payload))
+
+
+def truemoneySlipVerify(eventType: str, transactionId: str, transferDate: str):
+    payload = [
+        TLV.tag(
+            "00",
+            TLV.encode(
+                [
+                    TLV.tag("00", "01"),
+                    TLV.tag("01", "01"),
+                    TLV.tag("02", eventType),
+                    TLV.tag("03", transactionId),
+                    TLV.tag("04", transferDate),
+                ]
+            ),
+        ),
+    ]
+
+    return TLV.withCRCTag(TLV.encode(payload))
